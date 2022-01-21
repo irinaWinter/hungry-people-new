@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-htmlacademy",
+
+  "rules": {
+    "indentation": [2, {"ignore": ["inside-parens"]}]
+  }
+}
