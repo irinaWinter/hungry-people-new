@@ -1,0 +1,37 @@
+.down-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--white);
+  background-image: url("../img/arrow-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(1.1, 1.1);
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+  }
+}

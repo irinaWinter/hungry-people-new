@@ -1,0 +1,45 @@
+.nav {
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    flex-grow: 1;
+  }
+
+  &__logo-link {
+    margin: 25px 35px;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    display: block;
+
+    animation: moving 50s infinite linear;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 133px;
+    height: 100px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+
+    transition: all 0.3s;
+
+    &:hover {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+}

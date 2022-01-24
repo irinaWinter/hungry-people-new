@@ -1,0 +1,36 @@
+.socials {
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 20px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+
+    position: relative;
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s;
+    }
+
+    &:hover::before {
+      width: 65px;
+      height: 65px;
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+  }
+}
