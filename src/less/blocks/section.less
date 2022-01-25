@@ -1,0 +1,131 @@
+.section {
+  position: relative;
+
+  padding: 100px 0;
+
+  text-align: center;
+
+  &:nth-of-type(2n + 1) {
+    color: var(--white);
+    background-size: cover;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .section__container {
+      position: relative;
+      z-index: 1;
+
+      flex-direction: row-reverse;
+    }
+
+    .section__img-wrapper {
+      &::before {
+        left: 0;
+        right: initial;
+        transform: translateX(-50%);
+      }
+    }
+
+    .section__img {
+      margin-right: 80px;
+      margin-left: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__top-heading {
+    position: relative;
+    z-index: 1;
+
+    margin: -50px 0 50px;
+
+    font-size: 12px;
+    line-height: 117%;
+    text-align: center;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+
+  &__text-box {
+    flex-grow: 1;
+  }
+
+  &__heading {
+    position: relative;
+
+    font-family: var(--banny);
+    font-size: 36px;
+    line-height: 133%;
+
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 20px auto 0;
+      width: 60px;
+      height: 5px;
+      background-color: var(--accent);
+      border-radius: 50px;
+    }
+  }
+
+  &__subheading {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 171%;
+  }
+
+  &__img-wrapper {
+    flex-shrink: 0;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: 80px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      transform: translateX(50%);
+
+      width: 250px;
+      height: 250px;
+
+      border-radius: 5px;
+      border: 20px solid var(--accent);
+
+      filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  &__img {
+    width: 475px;
+    height: 475px;
+
+    border-radius: 5px;
+
+    filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
+  }
+}
