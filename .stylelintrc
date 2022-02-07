@@ -2,6 +2,7 @@
   "extends": "stylelint-config-htmlacademy",
 
   "rules": {
-    "indentation": [2, {"ignore": ["inside-parens"]}]
+    "indentation": [2, { "ignore": ["inside-parens"] }],
+    "max-nesting-depth": 10
   }
 }

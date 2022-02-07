@@ -1,0 +1,22 @@
+.gallery {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__button {
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+  
+  &__img {
+    width: 100%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

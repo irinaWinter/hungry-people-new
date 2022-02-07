@@ -1,0 +1,49 @@
+.form-contacts {
+  .list-reset();
+
+  display: flex;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+
+  color: rgba(51, 51, 51, 0.5);
+
+  @media (max-width: @desktop-width-sm) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: @tablet-width-sm) {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    @media (max-width: @tablet-width) {
+      margin-right: 0;
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    color: inherit;
+
+    &--link {
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+}

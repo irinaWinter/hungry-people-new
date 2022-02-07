@@ -1,37 +1,53 @@
 <header class="page-header">
   <div class="page-header__container container">
-    <nav class="page-header__nav nav">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link" href="#">Home</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">About</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Team</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Booking</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__logo-link" href="#"
-            ><img src="img/logo.svg" alt="Hungry People logo"
-          /></a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Menu</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Galerie</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Events</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="page-header__mobile-menu">
+      <nav class="page-header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#home">Home</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#about">About</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#team">Team</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#booking">Booking</a>
+          </li>
+          <li class="nav__item nav__logo">
+            <span class="nav__logo-img"
+              ><img src="img/logo.svg" alt="Hungry People logo"
+            /></span>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#menu">Menu</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#galerie">Galerie</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#events">Events</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <img
+      class="page-header__logo"
+      src="img/logo.svg"
+      alt="Hungry People logo"
+    />
+    <button
+      class="page-header__burger burger"
+      type="button"
+      aria-label="открыть меню"
+    >
+      <span class="burger__item"></span>
+      <span class="burger__item"></span>
+      <span class="burger__item"></span>
+    </button>
   </div>
 </header>

@@ -1,0 +1,63 @@
+.page-header {
+  &__mobile-menu {
+    width: 100%;
+    color: var(--white);
+
+    @media (max-width: @desktop-width-sm) {
+      position: fixed;
+
+      z-index: 5;
+
+      top: 0;
+      left: 0;
+
+      padding: 20px 10px;
+
+      height: 100vh;
+      max-height: 100vh;
+
+      background-color: var(--white);
+
+      pointer-events: none;
+
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+      transition: clip-path 0.5s;
+
+      color: var(--black);
+    }
+
+    &--active {
+      @media (max-width: @desktop-width-sm) {
+        min-height: 100vh;
+        max-height: 100vh;
+
+        overflow-y: auto;
+
+        pointer-events: auto;
+
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @media (max-width: @desktop-width-sm) {
+      position: absolute;
+
+      z-index: 2;
+
+      top: 10px;
+      left: 10px;
+
+      display: block;
+
+      width: 60px;
+      height: 60px;
+
+      object-fit: contain;
+    }
+  }
+}

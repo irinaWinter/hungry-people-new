@@ -1,44 +1,94 @@
-<section class="page-main__menu section">
+<section class="page-main__menu section section--light" id="contact">
   <div class="section__container container">
-    <h2 class="section__heading">Contact</h2>
-    <p class="section__subheading">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit
-      maximus, molestie est a, tempor magna.
-    </p>
-    <form class="section__form form" action="">
-      <ul class="form__list">
-        <li class="form__item">
-          <input type="text" name="name" placeholder="Name" />
-        </li>
-        <li class="form__item">
-          <input type="email" name="email" placeholder="email" />
-        </li>
-        <li class="form__item">
-          <input type="tel" name="tel" placeholder="Phone" />
-        </li>
-        <li class="form__item">
-          <textarea name="message">Message</textarea>
-        </li>
-      </ul>
-      <div class="form__bottom-box">
-        <ul class="form__contacts form-contacts">
-          <li class="form-contacts__item">
-            <address>London Boulevard, U.K.</address>
+    <div class="section__box">
+      <h2 class="section__heading">Contact</h2>
+      <p class="section__subheading">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit
+        maximus, molestie est a, tempor magna.
+      </p>
+      <form class="section__form form" action="">
+        <ul class="form__list form__list--contact">
+          <li class="form__item">
+            <input
+              class="form__field"
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+            />
           </li>
-          <li class="form-contacts__item">
-            <a href="tel:+40729131637">+40&nbsp;729&nbsp;131&nbsp;637</a>/<a
-              href="tel:+40726458782"
-              >+40&nbsp;726&nbsp;458&nbsp;782</a
-            >
+          <li class="form__item">
+            <input
+              class="form__field"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
           </li>
-          <li class="form-contacts__item">
-            <a href="mailto:office@mindblister.com">office@mindblister.com</a>
+          <li class="form__item">
+            <input
+              class="form__field"
+              type="tel"
+              name="tel"
+              placeholder="Phone"
+              required
+            />
+          </li>
+          <li class="form__item">
+            <textarea
+              class="form__field form__field--textarea"
+              name="message"
+              placeholder="Message"
+            ></textarea>
           </li>
         </ul>
-        <button class="form__button button button--accent" type="submit">
-          Send Message
-        </button>
-      </div>
-    </form>
+        <div class="form__bottom-box">
+          <ul class="form__contacts form-contacts">
+            <li class="form-contacts__item">
+              <address class="form-contacts__text">
+                <img
+                  class="form-contacts__icon"
+                  src="img/pin-icon.svg"
+                  alt="London Boulevard, U.K."
+                />
+                London Boulevard, U.K.
+              </address>
+            </li>
+            <li class="form-contacts__item">
+              <a
+                class="form-contacts__text form-contacts__text--link"
+                href="tel:+40729131637"
+                ><img
+                  class="form-contacts__icon"
+                  src="img/tel-icon.svg"
+                  alt=""
+                />
+                +40&nbsp;729&nbsp;131&nbsp;637</a
+              >/<a
+                class="form-contacts__text form-contacts__text--link"
+                href="tel:+40726458782"
+                >+40&nbsp;726&nbsp;458&nbsp;782</a
+              >
+            </li>
+            <li class="form-contacts__item">
+              <a
+                class="form-contacts__text form-contacts__text--link"
+                href="mailto:office@mindblister.com"
+                ><img
+                  class="form-contacts__icon"
+                  src="img/email-icon.svg"
+                  alt="email"
+                />
+                office@mindblister.com</a
+              >
+            </li>
+          </ul>
+          <button class="form__button button button--accent" type="submit">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>

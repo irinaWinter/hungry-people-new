@@ -1,0 +1,141 @@
+/* stylelint-disable max-nesting-depth */
+.events {
+  .list-reset();
+  padding: 0 125px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+
+  @media (max-width: @desktop-width) {
+    padding: 0;
+  }
+
+  @media (max-width: @desktop-width-sm) {
+    gap: 50px;
+  }
+
+  @media (max-width: @tablet-width-sm) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__item {
+    flex-shrink: 0;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    @media (max-width: @desktop-width-sm) {
+      // margin-left: auto;
+    }
+
+    &:nth-child(2n + 1) {
+      @media (max-width: @desktop-width-sm) {
+        margin-left: initial;
+      }
+
+      &::before {
+        position: absolute;
+        z-index: 1;
+        right: initial;
+        left: 0;
+        transform: translateX(-50%);
+      }
+
+      .events__heading-box {
+        writing-mode: vertical-lr;
+        transform: none;
+        right: 0;
+        left: initial;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      transform: translateX(50%);
+
+      width: 250px;
+      height: 250px;
+
+      border-radius: 5px;
+      border: 20px solid var(--accent);
+
+      filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.5));
+
+      @media (max-width: @desktop-width) {
+        content: none;
+        // width: 200px;
+        // height: 200px;
+
+        // border-width: 15px;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 475px;
+    height: 475px;
+    border-radius: 5px;
+    overflow: hidden;
+    filter: drop-shadow(0 0 50px #000000);
+
+    @media (max-width: @desktop-width) {
+      width: 100%;
+    }
+
+    @media (max-width: @tablet-width) {
+      height: 320px;
+    }
+
+    @media (max-width: @tablet-width-sm) {
+      height: 250px;
+    }
+  }
+
+  &__heading-box {
+    position: absolute;
+    writing-mode: vertical-lr;
+
+    transform: scale(-1);
+
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    padding: 20px 30px;
+
+    height: 100%;
+
+    background-color: var(--black);
+
+    @media (max-width: @tablet-width) {
+      padding: 10px 20px;
+    }
+  }
+
+  &__heading {
+    margin: 0;
+    font-family: var(--banny);
+    font-size: 24px;
+    line-height: 100%;
+    text-indent: 20px;
+    text-transform: uppercase;
+    text-align: left;
+
+    @media (max-width: @tablet-width-sm) {
+      font-size: 16px;
+    }
+  }
+
+  &__img {
+    width: 101%;
+    height: 101%;
+    object-fit: cover;
+  }
+}

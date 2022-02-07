@@ -1,18 +1,27 @@
-<section class="page-main__banner banner">
+<section class="page-main__banner banner" id="home">
+  <div class="banner__parallax parallax">
+    <div
+      class="parallax__img"
+      style="background-image: url('img/header-bg.jpg')"
+      data-depth="0.2"
+    ></div>
+  </div>
   <div class="banner__container container">
     <h1 class="banner__heading">
       Restaurant <span class="banner__name">Hungry People</span>
     </h1>
     <div class="banner__buttons">
-      <a class="banner__button button button--accent" href="#">Book table</a>
-      <a class="banner__button button" href="#">Explore</a>
+      <a class="banner__button button button--accent" href="#booking"
+        >Book table</a
+      >
+      <a class="banner__button button" href="#about">Explore</a>
     </div>
-    <button
+    <a
       class="banner__down-button down-button"
-      type="button"
-      aria-label=""
-    ></button>
-    <include src="blocks/schedule/schedule.html"></include>
+      aria-label="down"
+      href="#about"
+    ></a>
     <include src="blocks/socials/socials.html"></include>
+    <include src="blocks/schedule/schedule.html"></include>
   </div>
 </section>

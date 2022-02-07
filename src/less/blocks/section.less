@@ -3,11 +3,18 @@
 
   padding: 100px 0;
 
+  overflow: hidden;
+
   text-align: center;
 
-  &:nth-of-type(2n + 1) {
+  @media (max-width: @tablet-width-sm) {
+    padding: 40px 0;
+  }
+
+  &:nth-of-type(2n + 1):not(.section--light) {
     color: var(--white);
     background-size: cover;
+    background-position: center;
 
     &::before {
       content: "";
@@ -19,6 +26,22 @@
       background-color: rgba(0, 0, 0, 0.6);
     }
 
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+
+      width: 675px;
+      height: 100%;
+
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     .section__container {
       position: relative;
       z-index: 1;
@@ -27,27 +50,46 @@
     }
 
     .section__img-wrapper {
+      margin-left: 160px;
+      margin-right: 80px;
+
+      @media (max-width: @desktop-width) {
+        margin-left: 120px;
+      }
+
+      @media (max-width: @desktop-width-sm) {
+        margin: 0 auto;
+      }
+
       &::before {
         left: 0;
         right: initial;
         transform: translateX(-50%);
       }
     }
-
-    .section__img {
-      margin-right: 80px;
-      margin-left: 0;
-    }
   }
 
   &__container {
     display: flex;
     align-items: center;
+
+    @media (max-width: @desktop-width-sm) {
+      display: grid;
+      gap: 50px;
+    }
+
+    @media (max-width: @tablet-width-sm) {
+      gap: 10px;
+    }
+  }
+
+  &__box {
+    width: 100%;
   }
 
   &__top-heading {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 
     margin: -50px 0 50px;
 
@@ -56,14 +98,24 @@
     text-align: center;
     letter-spacing: 0.5em;
     text-transform: uppercase;
+
+    @media (max-width: @tablet-width-sm) {
+      margin: 0 0 20px;
+    }
   }
 
   &__text-box {
     flex-grow: 1;
+
+    @media (max-width: @desktop-width-sm) {
+      flex-grow: 0;
+    }
   }
 
   &__heading {
     position: relative;
+
+    margin: 15px 0;
 
     font-family: var(--banny);
     font-size: 36px;
@@ -71,10 +123,14 @@
 
     text-transform: uppercase;
 
+    @media (max-width: @tablet-width-sm) {
+      font-size: 32px;
+    }
+
     &::after {
       content: "";
       display: block;
-      margin: 20px auto 0;
+      margin: 10px auto 0;
       width: 60px;
       height: 5px;
       background-color: var(--accent);
@@ -83,9 +139,17 @@
   }
 
   &__subheading {
+    max-width: 565px;
+
+    margin: 0 auto;
+
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
+
+    @media (max-width: @tablet-width-sm) {
+      font-size: 16px;
+    }
   }
 
   &__text {
@@ -101,7 +165,22 @@
     display: flex;
     align-items: center;
 
+    margin-right: 130px;
     margin-left: 80px;
+
+    @media (max-width: @desktop-width) {
+      margin-right: 120px;
+    }
+
+    @media (max-width: @desktop-width-sm) {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: @tablet-width-sm) {
+      width: 100%;
+      height: auto;
+    }
 
     &::before {
       content: "";
@@ -117,6 +196,17 @@
       border: 20px solid var(--accent);
 
       filter: drop-shadow(0 0 100px rgba(0, 0, 0, 0.5));
+
+      @media (max-width: @desktop-width) {
+        width: 200px;
+        height: 200px;
+
+        border-width: 15px;
+      }
+
+      @media (max-width: @tablet-width-sm) {
+        content: none;
+      }
     }
   }
 
@@ -127,5 +217,44 @@
     border-radius: 5px;
 
     filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
+
+    @media (max-width: @desktop-width) {
+      width: 400px;
+      height: 400px;
+    }
+
+    @media (max-width: @desktop-width-sm) {
+      filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.3));
+    }
+
+    @media (max-width: @tablet-width-sm) {
+      width: 100%;
+      height: auto;
+
+      filter: none;
+    }
+  }
+
+  &__info {
+    margin: 50px 0 -50px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: @tablet-width-sm) {
+      margin: 20px 0 0;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
   }
 }

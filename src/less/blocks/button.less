@@ -18,19 +18,34 @@
 
   transition: all 0.3s;
 
-  &:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+  @media (max-width: @desktop-width-sm) {
+    min-width: 180px;
+    min-height: 45px;
   }
 
   &--accent {
     background-color: var(--accent);
     border-color: transparent;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
 
     &:hover {
-      background-color: transparent;
       border-color: var(--accent);
       color: var(--accent);
     }
+
+    &--accent {
+      &:hover {
+        background-color: transparent;
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 }
