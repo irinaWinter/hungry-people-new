@@ -488,18 +488,18 @@ html {
     min-height: 45px;
   }
 }
+.button:not(:disabled) {
+  cursor: pointer;
+}
+.button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 .button--accent {
   background-color: var(--accent);
   border-color: transparent;
 }
-.button:not(:disabled) {
-  cursor: pointer;
-}
-.button:not(:disabled):hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-.button:not(:disabled)--accent:hover {
+.button--accent:hover:not(:disabled) {
   background-color: transparent;
   border-color: var(--accent);
   color: var(--accent);

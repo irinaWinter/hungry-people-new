@@ -23,25 +23,23 @@
     min-height: 45px;
   }
 
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
   &--accent {
     background-color: var(--accent);
     border-color: transparent;
-  }
 
-  &:not(:disabled) {
-    cursor: pointer;
-
-    &:hover {
+    &:hover:not(:disabled) {
+      background-color: transparent;
       border-color: var(--accent);
       color: var(--accent);
-    }
-
-    &--accent {
-      &:hover {
-        background-color: transparent;
-        border-color: var(--accent);
-        color: var(--accent);
-      }
     }
   }
 
