@@ -120,7 +120,7 @@
         hintContent: "5th London Boulevard, U.K.",
       }, {
         iconLayout: "default#image",
-        iconImageHref: "../img/logo.svg",
+        iconImageHref: "https://irinawinter.github.io/hungry-people-new/build/img/logo.svg",
         iconImageSize: [60, 60],
         iconImageOffset: [-30, -30]
       })
