@@ -3,12 +3,24 @@
     html = document.querySelector('html');
 
   const
-    main = document.querySelector('main');
-
-  // Preload
-  const
     body = document.querySelector('body');
 
+  const
+    main = document.querySelector('main');
+
+  const
+    showOverflowY = () => {
+      html.style.overflowY = 'visible';
+    }
+
+  const
+    hideOverflowY = () => {
+      html.style.overflowY = 'hidden';
+    }
+
+
+
+  // Preload
   body.classList.remove('preload');
 
 
@@ -28,7 +40,7 @@
 
 
   // Map
-  let
+  const
     yandexMap = document.querySelector('#map');
 
   if (yandexMap) {
@@ -53,13 +65,16 @@
   }
 
   function elementInViewport(el) {
-    var
+    let
       top = el.offsetTop;
-    var
+
+    let
       left = el.offsetLeft;
-    var
+
+    let
       width = el.offsetWidth;
-    var
+
+    let
       height = el.offsetHeight;
 
     while (el.offsetParent) {
@@ -83,6 +98,7 @@
     if (!document.querySelector('script[src="https://api-maps.yandex.ru/2.1/?lang=en_US"]')) {
       let
         scriptYMap = document.createElement('script');
+
       let
         body = document.querySelector('body');
 
@@ -93,6 +109,7 @@
         ymaps.ready(mapInit);
         mapInitialised = true;
       }
+
     } else {
       if ((yandexMap.childNodes.length < 1) && (mapInitialised = false)) {
         mapInit();
@@ -101,10 +118,10 @@
   }
 
   function mapInit() {
-    var
+    const
       center = [51.499252, -0.100410];
 
-    var
+    const
       myMap = new ymaps.Map("map", {
         center: center,
         zoom: 14
@@ -128,6 +145,7 @@
     myMap.geoObjects.add(myPlacemark);
     myMap.controls.remove('searchControl');
   }
+
 
   // Categories
   const
@@ -185,14 +203,16 @@
     switchesClickHandler(evt)
   })
 
+
   // Scroll menu
-  const anchors = document.querySelectorAll('a[href*="#"]')
+  const
+    anchors = document.querySelectorAll('a[href*="#"]')
 
-  for (let anchor of anchors) {
-    anchor.addEventListener('click', function (evt) {
-
+  const
+    ahchorClickHandler = function (evt, anchor) {
       const
         name = anchor.getAttribute('href').substr(1);
+
       const
         blockName = '[id=' + name + ']';
 
@@ -212,110 +232,141 @@
           block: 'start'
         })
       }
+    }
 
-    })
-  }
+  anchors.forEach(anchor => anchor.addEventListener('click', (evt) => {
+    ahchorClickHandler(evt, anchor)
+  }))
+
 
   // Mobile menu
-  var openMenuButton = document.querySelector('.burger');
+  const
+    openMenuButton = document.querySelector('.burger');
+
+  const
+    mobileMenu = document.querySelector('.page-header__mobile-menu');
 
   function closeMenu() {
     mobileMenu.classList.remove('page-header__mobile-menu--active');
-    html.style.overflowY = 'visible';
+    showOverflowY()
   }
 
   function openMenu() {
     mobileMenu.classList.add('page-header__mobile-menu--active');
-    html.style.overflow = 'hidden';
+    hideOverflowY()
   }
 
   if (openMenuButton) {
-    var mobileMenu = document.querySelector('.page-header__mobile-menu');
+    const
+      toggleMenu = () => {
+        if (mobileMenu.classList.contains('page-header__mobile-menu--active')) {
+          closeMenu()
+        } else {
+          openMenu()
+        }
+      };
 
-    var toggleMenu = () => {
-      if (mobileMenu.classList.contains('page-header__mobile-menu--active')) {
-        closeMenu()
-      } else {
-        openMenu()
+    const
+      openMenuButtonClickHandler = () => {
+        toggleMenu();
       }
-    };
-
-    var openMenuButtonClickHandler = () => {
-      toggleMenu();
-    }
 
     openMenuButton.addEventListener('click', openMenuButtonClickHandler);
   }
 
+
   // Success message
-  const successMessageTemplate = document.querySelector('#success');
-  const successMessagePopup = successMessageTemplate
-    .content
-    .querySelector('.popup__container')
-    .cloneNode(true);
+  const
+    successMessageTemplate = document.querySelector('#success');
 
-  const closeSuccessMessage = () => {
-    successMessagePopup.remove();
-    html.style.overflowY = 'visible';
-  };
+  const
+    successMessagePopup = successMessageTemplate
+      .content
+      .querySelector('.popup__container')
+      .cloneNode(true);
 
-  const openSuccessMessage = () => {
-    html.style.overflowY = 'hidden';
+  const
+    closeSuccessMessage = () => {
+      successMessagePopup.remove();
+      showOverflowY();
+    };
 
-    main.appendChild(successMessagePopup);
+  const
+    openSuccessMessage = () => {
+      hideOverflowY()
 
-    const closeButtonTop = document.querySelector('.popup__close-button');
+      main.appendChild(successMessagePopup);
 
-    closeButtonTop.addEventListener('click', closeSuccessMessage);
+      const
+        closeButtonTop = document.querySelector('.popup__close-button');
 
-    const popup = document.querySelector('.popup__container')
+      closeButtonTop.addEventListener('click', closeSuccessMessage);
 
-    popup.addEventListener('click', function (evt) {
-      if (evt.target === popup) closeSuccessMessage()
-    })
-  }
+      const
+        popup = document.querySelector('.popup__container')
 
-  const disable = (field) => {
-    field.disabled = true
-  }
+      popup.addEventListener('click', function (evt) {
+        if (evt.target === popup) closeSuccessMessage()
+      })
+    }
 
-  const forms = document.querySelectorAll('.form')
-  forms.forEach(item => item.addEventListener('submit', function (evt) {
+  const
+    disable = (field) => {
+      field.disabled = true
+    }
+
+  const
+    forms = document.querySelectorAll('.form')
+
+  const
+    disableFields = (form) => {
+      const
+        fields = form.querySelectorAll('input')
+
+      fields.forEach(field => disable(field))
+
+      const
+        textareas = form.querySelectorAll('textarea')
+
+      textareas.forEach(textarea => disable(textarea))
+
+      const
+        submitButtons = form.querySelectorAll('button[type="submit"]')
+
+      submitButtons.forEach(button => disable(button))
+    }
+
+  forms.forEach(form => form.addEventListener('submit', function (evt) {
     evt.preventDefault()
+    disableFields(form);
     openSuccessMessage();
-
-    const
-      fields = item.querySelectorAll('input')
-
-    fields.forEach(item => disable(item))
-
-    const
-      textareas = item.querySelectorAll('textarea')
-
-    textareas.forEach(item => disable(item))
-
-    const
-      buttons = item.querySelectorAll('button[type="submit"]')
-
-    buttons.forEach(item => disable(item))
   }))
 
+
   // Parallax
-  var scenes = document.querySelectorAll('.parallax');
-  scenes.forEach(item => {
-    var parallaxInstance = new Parallax(item);
+  const
+    scenes = document.querySelectorAll('.parallax');
+
+  scenes.forEach(scene => {
+    const
+      parallaxInstance = new Parallax(scene);
   })
 
 
   // Inputmask
-  const im = new Inputmask('8(999)-999-99-99');
-  const telFields = document.querySelectorAll('input[type="tel"]')
-  telFields.forEach(item => im.mask(item))
+  const
+    im = new Inputmask('8(999)-999-99-99');
+
+  const
+    telFields = document.querySelectorAll('input[type="tel"]')
+
+  telFields.forEach(field => im.mask(field))
 
 
   // Scroll
   function scrollTrigger(selector, options = {}) {
-    let els = document.querySelectorAll(selector)
+    let
+      els = document.querySelectorAll(selector)
 
     els = Array.from(els)
 
@@ -335,23 +386,27 @@
       return
     }
 
-    let observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (options.cb) {
-            options.cb(el)
-          } else {
-            entry.target.classList.add('active')
+    let
+      observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (options.cb) {
+              options.cb(el)
+            } else {
+              entry.target.classList.add('active')
+            }
+            observer.unobserve(entry.target)
           }
-          observer.unobserve(entry.target)
-        }
-      })
-    }, options)
+        })
+      }, options)
 
     observer.observe(el)
   }
 
-  const scrollElems = document.querySelectorAll('.scroll-reveal')
+  const
+    scrollElems = document.querySelectorAll('.scroll-reveal')
+
   scrollElems.forEach((item, i) => {
     item.classList.add('box')
 
