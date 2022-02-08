@@ -417,9 +417,7 @@
     }
   })
 
-  scrollTrigger('.scroll-reveal', {
-    rootMargin: '-200px',
-  })
+  scrollTrigger('.scroll-reveal')
 
 
   // Top Button
