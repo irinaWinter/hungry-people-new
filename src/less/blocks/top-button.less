@@ -32,5 +32,9 @@
   &--visible {
     opacity: 0.5;
     pointer-events: all;
+
+    @media (max-width: @tablet-width-sm) {
+      opacity: 1;
+    }
   }
 }

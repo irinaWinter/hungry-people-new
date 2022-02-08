@@ -346,6 +346,7 @@ body {
   padding: 0;
   min-width: 320px;
   font-family: "Open Sans", "Arial", sans-serif;
+  overflow-x: hidden;
   --black: #000000;
   --white: #ffffff;
   --accent: #e8c300;
@@ -1600,6 +1601,7 @@ html {
   position: relative;
 }
 .swiper-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2019,11 +2021,22 @@ html {
   opacity: 0.5;
   pointer-events: all;
 }
+@media (max-width: 767px) {
+  .top-button--visible {
+    opacity: 1;
+  }
+}
 .page-main__top-button {
   position: fixed;
   z-index: 2;
   bottom: 50px;
   right: 50px;
+}
+@media (max-width: 767px) {
+  .page-main__top-button {
+    bottom: 20px;
+    right: 20px;
+  }
 }
 @-webkit-keyframes typeIn {
   to {
