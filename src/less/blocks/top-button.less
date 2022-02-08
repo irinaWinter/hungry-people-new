@@ -1,0 +1,36 @@
+.top-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--accent);
+  background-image: url("../img/arrow-top.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: all 0.3s;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+  }
+
+  &--visible {
+    opacity: 0.5;
+    pointer-events: all;
+  }
+}

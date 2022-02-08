@@ -1985,6 +1985,46 @@ html {
   margin: 20px 0 0;
   text-align: center;
 }
+.top-button {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  background-image: url("../img/arrow-top.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.top-button:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+.top-button--visible {
+  opacity: 0.5;
+  pointer-events: all;
+}
+.page-main__top-button {
+  position: fixed;
+  z-index: 2;
+  bottom: 50px;
+  right: 50px;
+}
 @-webkit-keyframes typeIn {
   to {
     width: 28ch;

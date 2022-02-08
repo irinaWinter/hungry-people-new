@@ -420,4 +420,27 @@
   scrollTrigger('.scroll-reveal', {
     rootMargin: '-200px',
   })
+
+
+  // Top Button
+  const
+    topButton = document.querySelector('.top-button');
+
+  function trackScroll() {
+    const
+      scrolled = window.pageYOffset;
+
+    const
+      coords = document.documentElement.clientHeight;
+
+    if (scrolled > coords) {
+      topButton.classList.add('top-button--visible');
+    }
+
+    if (scrolled < coords) {
+      topButton.classList.remove('top-button--visible');
+    }
+  }
+
+  window.addEventListener('scroll', trackScroll);
 })();
