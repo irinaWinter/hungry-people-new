@@ -30,14 +30,12 @@
       autoplay: {
         delay: 3000,
       },
-      autoHeight: true,
       loop: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },
     });
-
 
   // Map
   const
