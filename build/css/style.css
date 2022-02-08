@@ -2035,37 +2035,34 @@ html {
     width: 28ch;
   }
 }
-.box {
+.scrll-box {
   -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
   transition: opacity 0.5s, -webkit-transform 0.5s;
   transition: transform 0.5s, opacity 0.5s;
   transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
 }
-.box.left {
+.scrll-box.scrll-left {
   -webkit-transform: translateX(-200px);
           transform: translateX(-200px);
   opacity: 0;
 }
-.box.right {
+.scrll-box.scrll-right {
   -webkit-transform: translateX(200px);
           transform: translateX(200px);
   opacity: 0;
 }
-.box.top {
+.scrll-box.scrll-top {
   -webkit-transform: translateY(-200px) rotate(360deg);
           transform: translateY(-200px) rotate(360deg);
   opacity: 0;
 }
-.box.bottom {
+.scrll-box.scrll-bottom {
   -webkit-transform: translateY(200px) scaleX(3);
           transform: translateY(200px) scaleX(3);
   opacity: 0;
 }
-.box.active {
+.scrll-box.scrll-active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
   opacity: 1;
-}
-.loader {
-  text-align: center;
 }

@@ -380,7 +380,7 @@
       if (options.cb) {
         options.cb(el)
       } else {
-        entry.target.classList.add('active')
+        entry.target.classList.add('scrll-active')
       }
 
       return
@@ -394,7 +394,7 @@
             if (options.cb) {
               options.cb(el)
             } else {
-              entry.target.classList.add('active')
+              entry.target.classList.add('scrll-active')
             }
             observer.unobserve(entry.target)
           }
@@ -408,12 +408,12 @@
     scrollElems = document.querySelectorAll('.scroll-reveal')
 
   scrollElems.forEach((item, i) => {
-    item.classList.add('box')
+    item.classList.add('scrll-box')
 
     if (i % 2) {
-      item.classList.add('left')
+      item.classList.add('scrll-left')
     } else {
-      item.classList.add('right')
+      item.classList.add('scrll-right')
     }
   })
 

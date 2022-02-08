@@ -4,35 +4,31 @@
   }
 }
 
-.box {
+.scrll-box {
   transition: transform 0.5s, opacity 0.5s;
 }
 
-.box.left {
+.scrll-box.scrll-left {
   transform: translateX(-200px);
   opacity: 0;
 }
 
-.box.right {
+.scrll-box.scrll-right {
   transform: translateX(200px);
   opacity: 0;
 }
 
-.box.top {
+.scrll-box.scrll-top {
   transform: translateY(-200px) rotate(360deg);
   opacity: 0;
 }
 
-.box.bottom {
+.scrll-box.scrll-bottom {
   transform: translateY(200px) scaleX(3);
   opacity: 0;
 }
 
-.box.active {
+.scrll-box.scrll-active {
   transform: translateX(0);
   opacity: 1;
-}
-
-.loader {
-  text-align: center;
 }
