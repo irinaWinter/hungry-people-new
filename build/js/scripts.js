@@ -314,15 +314,55 @@
 
 
   // Scroll
-  function scrollTrigger(selector) {
+  function scrollTrigger(selector, options = {}) {
     let els = document.querySelectorAll(selector)
 
     els = Array.from(els)
 
     els.forEach(el => {
-      addObserver(el)
+      addObserver(el, options)
     })
   }
 
-  scrollTrigger('.scroll-reveal')
+  function addObserver(el, options) {
+    if (!('IntersectionObserver' in window)) {
+      if (options.cb) {
+        options.cb(el)
+      } else {
+        entry.target.classList.add('active')
+      }
+
+      return
+    }
+
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (options.cb) {
+            options.cb(el)
+          } else {
+            entry.target.classList.add('active')
+          }
+          observer.unobserve(entry.target)
+        }
+      })
+    }, options)
+
+    observer.observe(el)
+  }
+
+  const scrollElems = document.querySelectorAll('.scroll-reveal')
+  scrollElems.forEach((item, i) => {
+    item.classList.add('box')
+
+    if (i % 2) {
+      item.classList.add('left')
+    } else {
+      item.classList.add('right')
+    }
+  })
+
+  scrollTrigger('.scroll-reveal', {
+    rootMargin: '-200px',
+  })
 })();
